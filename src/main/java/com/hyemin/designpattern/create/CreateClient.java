@@ -1,6 +1,7 @@
 package com.hyemin.designpattern.create;
 
 import com.hyemin.designpattern.create.factory_method.Logistics;
+import com.hyemin.designpattern.create.factory_method.Transport;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -13,6 +14,6 @@ public class CreateClient {
 
     public void run() {
         Transport transport = logistics.createTransport();
-        transport.log();
+        transport.deliver();
     }
 }
