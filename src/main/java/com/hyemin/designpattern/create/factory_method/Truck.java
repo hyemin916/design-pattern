@@ -1,5 +1,8 @@
 package com.hyemin.designpattern.create.factory_method;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Truck implements Transport {
     @Override
     public void deliver() {
