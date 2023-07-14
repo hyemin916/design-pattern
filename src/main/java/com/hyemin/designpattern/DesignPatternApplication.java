@@ -5,6 +5,11 @@ import com.hyemin.designpattern.create.abstract_factory.AbstractFactoryClient;
 import com.hyemin.designpattern.create.abstract_factory.factories.GUIFactory;
 import com.hyemin.designpattern.create.abstract_factory.factories.MacOSFactory;
 import com.hyemin.designpattern.create.abstract_factory.factories.WindowsFactory;
+import com.hyemin.designpattern.create.builder.builders.CarBuilder;
+import com.hyemin.designpattern.create.builder.builders.CarManualBuilder;
+import com.hyemin.designpattern.create.builder.cars.Car;
+import com.hyemin.designpattern.create.builder.cars.Manual;
+import com.hyemin.designpattern.create.builder.director.Director;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -31,5 +36,21 @@ public class DesignPatternApplication implements CommandLineRunner {
 	public void run(final String... args) {
 		createClient.run();
 		configureApplication().paint();
+		builder();
+	}
+
+	private static void builder() {
+		final Director director = new Director();
+		final CarBuilder builder = new CarBuilder();
+		director.constructSportsCar(builder);
+
+		Car car = builder.getResult();
+		System.out.println("Car built:\n" + car.getType());
+
+		final CarManualBuilder manualBuilder = new CarManualBuilder();
+
+		director.constructSportsCar(manualBuilder);
+		final Manual carManual = manualBuilder.getResult();
+		System.out.println("\nCar manual built:\n" + carManual.print());
 	}
 }
