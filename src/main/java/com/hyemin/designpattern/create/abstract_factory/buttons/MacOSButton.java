@@ -1,4 +1,4 @@
-package com.hyemin.designpattern.create.absctract_factory.buttons;
+package com.hyemin.designpattern.create.abstract_factory.buttons;
 
 public class MacOSButton implements Button {
 

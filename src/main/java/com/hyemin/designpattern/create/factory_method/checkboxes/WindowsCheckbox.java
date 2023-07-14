@@ -1,4 +1,4 @@
-package com.hyemin.designpattern.create.absctract_factory.checkboxes;
+package com.hyemin.designpattern.create.factory_method.checkboxes;
 
 public class WindowsCheckbox implements Checkbox {
 
